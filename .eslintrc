@@ -109,6 +109,7 @@
           "object": false
         }
       }
-    ]
+    ],
+    "@typescript-eslint/consistent-type-imports": "error"
   }
 }

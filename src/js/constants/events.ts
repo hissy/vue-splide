@@ -1,3 +1,4 @@
+import type { EventMap } from '@splidejs/splide';
 import {
   EVENT_ACTIVE,
   EVENT_ARROWS_MOUNTED,
@@ -26,7 +27,6 @@ import {
   EVENT_SCROLLED,
   EVENT_UPDATED,
   EVENT_VISIBLE,
-  EventMap,
 } from '@splidejs/splide';
 
 
