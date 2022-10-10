@@ -30,9 +30,7 @@ import SplideTrack from '../SplideTrack/SplideTrack.vue';
  */
 export default defineComponent( {
   name: 'Splide',
-  emits: EVENTS.map( event => `splide:${ event }` ),
   components: { SplideTrack },
-
   props: {
     /**
      * Changes the tag name.
@@ -46,19 +44,29 @@ export default defineComponent( {
      * Options for Splide instance.
      */
     options: {
-      default: {},
+      default() {
+        return {};
+      },
       type   : Object as PropType<Options>,
     },
 
     /**
      * Registers extension components.
      */
-    extensions: Object as PropType<Record<string, ComponentConstructor>>,
+    extensions: {
+      type: Object as PropType<Record<string, ComponentConstructor>>,
+      default() {
+        return {};
+      },
+    },
 
     /**
      * Registers a transition component.
      */
-    transition: Function as PropType<ComponentConstructor>,
+    transition: {
+      type: Function as PropType<ComponentConstructor>,
+      default(){},
+    },
 
     /**
      * Determines whether to render a track element or not.
@@ -68,6 +76,7 @@ export default defineComponent( {
       type   : Boolean,
     },
   },
+  emits: EVENTS.map( event => `splide:${ event }` ),
 
   setup( props, context ) {
     const splide = ref<Splide>();
